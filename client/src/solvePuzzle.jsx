@@ -1,8 +1,14 @@
 // src/solvePuzzle.js
 export const solvePuzzle = (grid) => {
-    const N = 8;  // Size of the matrix (8x8)
-    const colors = 'ABCDEFGH'; // 8 colors
-  
+    const N = grid.length;  // Size of the matrix (8x8)
+    let colors;
+    if(N === 8)
+        colors = 'ABCDEFGH';
+    else if(N === 10)
+        colors = 'ABCDEFGHIJ';
+    else
+        colors = 'ABCDEFGHIJKLMN';
+    
     let hasStar = Array.from({ length: N }, () => Array(N).fill(false));
     let rowUsed = Array(N).fill(false);
     let colUsed = Array(N).fill(false);
