@@ -9,7 +9,6 @@ const FileUpload = () => {
   const [matrix, setMatrix] = useState(null);
   const [starIndices, setStarIndices] = useState([]);
   const [gridSize, setGridSize] = useState(null); // Initialize as null
-  
   // Handle the file input or pasted image
   const handleImageUpload = (imageFile) => {
     if (gridSize === null) {
@@ -24,7 +23,7 @@ const FileUpload = () => {
     axios.post('http://localhost:5000/recognize-colors', formData)
       .then(response => {
         const matrix = response.data.matrix;
-        
+        console.log(response.data);
         if (matrix.length !== gridSize || matrix.some(row => row.length !== gridSize)) {
           setError(`Matrix dimensions (${matrix.length}x${matrix[0].length}) do not match the selected grid size (${gridSize})`);
           setSolvedPuzzle(null);
@@ -33,8 +32,9 @@ const FileUpload = () => {
         
         setMatrix(matrix);
         setColorList(response.data.uniqueColors);
-        const solution = solvePuzzle(matrix, gridSize); // Pass gridSize if needed by solvePuzzle
+        const solution = solvePuzzle(matrix); // Pass gridSize if needed by solvePuzzle
         setSolvedPuzzle(solution);
+        // console.log(solution);
         extractStarIndices(solution);
         setError(null);
       })
