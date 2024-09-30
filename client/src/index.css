@@ -1,68 +1,130 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+/* FileUpload.css */
+html, body {
+  height: 100%;
   margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+  font-family: Arial, sans-serif; /* Optional: Set a global font */
+}
+.file-upload-container {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.grid-select-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input[type="file"] {
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: lightgreen;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+button:hover {
+  background-color: #70d92a;
+}
+
+/* Floating notification */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: -300px; /* Initially off-screen */
+  background-color: #f44336; /* Red color for errors */
+  color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  font-size: 14px;
+  transition: right 0.4s ease-in-out;
+}
+
+.notification.show {
+  right: 20px; /* Slide in to the visible area */
+}
+
+.notification.hide {
+  right: -1000px; /* Slide back out of the visible area */
+}
+
+.notification p {
+  margin: 0;
+}
+.centered-text {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #fff; /* White text */
+  background: linear-gradient(to right, #5f2c91, #49a09d); /* Green background */
+  padding: 10px; /* Padding around the text */
+  border-radius: 5px; /* Rounded corners */
+  margin: 10px 0;
+}
+.button2 {
+  position: absolute; /* Adjusts position relative to the nearest positioned ancestor */
+  top: 20px; /* Adjust as needed */
+  right: 20px; /* Adjust as needed */
+  background-color: lightblue; /* Background color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 15px; /* Padding for button */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+.button2:hover {
+  background-color: deepskyblue; /* Change background color on hover */
+}
+
+.video-container {
+  width: 100%;
+  height: 100vh; /* 100% of the viewport height */
+}
+
+video {
+  width: 100%;
+  height: 80%;
+}
+
+.button3 {
+  position: absolute; /* Adjusts position relative to the nearest positioned ancestor */
+  top: 20px; /* Adjust as needed */
+  right: 200px; /* Adjust as needed */
+  background-color: lightblue; /* Background color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 15px; /* Padding for button */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+.button3:hover {
+  background-color: deepskyblue; /* Change background color on hover */
 }
